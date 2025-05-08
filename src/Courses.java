@@ -5,5 +5,10 @@
 */
 
 public class Courses {
-
+	private int currentHole;
+	private 
+	
+	public Courses() {
+		
+	}
 }
