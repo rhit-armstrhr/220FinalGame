@@ -1,5 +1,5 @@
 /**
-* @author Frank LaMantia
+ * @author Frank LaMantia
 * Used only 220 materials
 */
 
@@ -14,9 +14,10 @@ public class Viewer {
 		JFrame frame = new JFrame("Viewer");
 		
 		Courses c = new Courses();
+		Player p = new Player();
 		
 		frame.add(c.getHole());
-		
+		frame.add(p);
 		
 		frame.setSize(600, 400);
 		frame.pack();
