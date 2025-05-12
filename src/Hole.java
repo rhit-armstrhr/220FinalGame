@@ -33,6 +33,7 @@ public class Hole extends JPanel{
 		setPreferredSize(new Dimension(image.getWidth(), image.getHeight()));
 	}
 	
+	
 	@Override
 	protected void paintComponent(java.awt.Graphics g) {
 		super.paintComponent(g);
