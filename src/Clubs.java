@@ -1,8 +1,11 @@
 import java.util.ArrayList;
+
+import javax.swing.JPanel;
+
 import java.awt.Rectangle;
 import java.awt.Shape;
 
-public class Clubs {
+public class Clubs extends JPanel{
 
 	double range;
 	private String title;
