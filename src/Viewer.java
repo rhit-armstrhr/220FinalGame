@@ -23,6 +23,7 @@ public class Viewer {
 		panel.add(c.getHole());
 		
 		panel.add(sb);
+		
 //		frame.add(p);
 		frame.add(panel);
 		frame.setSize(600, 400);
