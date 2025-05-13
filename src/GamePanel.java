@@ -7,7 +7,7 @@ import javax.swing.JPanel;
 * @author Frank LaMantia
 * Used only 220 materials
 */
-
+// help me
 public class GamePanel extends JComponent {
 
 	private Player p;
