@@ -6,6 +6,7 @@ public class Game {
 	public Game() {
 		// TODO Auto-generated constructor stub
 		
+
 	}
 
 	public void setController(Controller control) {

@@ -8,7 +8,7 @@ public class Controller {
 
 	private JFrame frame;
 
-	public Controller(JFrame jFrame) {
+	public Controller(JFrame jFrame, Player p) {
 		// TODO Auto-generated constructor stub
 		this.frame = jFrame;
 		Timer animation = new Timer(20, e -> getAndHandleEvents());
@@ -26,6 +26,7 @@ public class Controller {
 				case KeyEvent.VK_RIGHT:
 					// canvas.moveDelta(10);
 					System.out.println("right");
+					
 					break;
 				case KeyEvent.VK_LEFT:
 //					canvas.moveDelta(-10);
@@ -39,7 +40,7 @@ public class Controller {
 
 	private void getAndHandleEvents() {
 		// TODO Auto-generated method stub
-System.out.println("run");
+//System.out.println("run");
 	}
 
 	public void addFrame(JFrame frame) {

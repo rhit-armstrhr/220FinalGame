@@ -7,6 +7,7 @@
 import java.awt.BorderLayout;
 
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
 public class Viewer {
@@ -14,11 +15,11 @@ public class Viewer {
 
 	public void createGUI() {
 		frame = new JFrame("Viewer");
-
+		JPanel panel = new JPanel();
 		Courses c = new Courses();
-		Player p = new Player();
-		frame.add(c.getHole());
-//		frame.add(p);
+		panel.add(c.getHole());
+		
+		frame.add(panel);
 		frame.setSize(600, 400);
 		frame.pack();
 		frame.setLocationRelativeTo(null);
