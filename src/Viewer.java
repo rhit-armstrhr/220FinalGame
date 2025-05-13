@@ -1,6 +1,6 @@
 
 /**
- * @author Frank LaMantia and Hayden Armstrong
+ * @author Frank LaMantia and 
 * Used only 220 materials
 */
 

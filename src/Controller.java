@@ -1,5 +1,4 @@
 import java.awt.event.KeyEvent;
-
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 import javax.swing.Timer;
@@ -26,13 +25,11 @@ public class Controller {
 				case KeyEvent.VK_RIGHT:
 					// canvas.moveDelta(10);
 					System.out.println("right");
-					
 					break;
 				case KeyEvent.VK_LEFT:
 //					canvas.moveDelta(-10);
 					System.out.println("left");
 					break;
-
 				}
 			};
 		});

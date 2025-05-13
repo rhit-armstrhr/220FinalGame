@@ -4,30 +4,31 @@ import java.util.ArrayList;
 import javax.swing.JPanel;
 
 /**
-* @author Frank LaMantia
-* Used only 220 materials
-*/
+ * @author Frank LaMantia and Hayden Armstrong
+ * Used only 220 materials
+ */
 
-public class Ball extends JPanel{
+public class Ball extends JPanel {
 
-	private int x, y;
+	private double x, y;
 	private int height;
 	private ArrayList<BufferedImage> ballFrames = Animations.ballArc();
-	
-	
-	public Ball(int startX, int startY) {
+
+	public Ball(double startX, double startY) {
 		x = startX;
 		y = startY;
 		height = 0;
+
+	}
+
+	public void getBlown(double x,double y) {
 		
 	}
+
+	public void getHit(double xLoc, double yLoc) {
+		x = xLoc;
+		y = yLoc;
 	
-	public void getBlown() {
-		
 	}
-	
-	public void getHit() {
-		
-	}
-	
+
 }

@@ -1,18 +1,20 @@
 import java.awt.Color;
 import java.awt.Rectangle;
 import java.util.ArrayList;
-
 import javax.swing.JPanel;
 
+@SuppressWarnings("serial")
 public class Player extends JPanel {
 	public int strokes;
-	private int xLoc, yLoc;
+	private double xLoc, yLoc;
+	private double xAim, yAim, angle;
 
 	private int clubIndex = 0;
 	private Clubs currentClub;
 	private double shotAngle = 90;
 	private double range;
 	public ArrayList<Clubs> clubList = new ArrayList<Clubs>();
+	private Ball ball;
 
 	public Player() {
 		// TODO Auto-generated constructor stub
@@ -28,10 +30,31 @@ public class Player extends JPanel {
 		clubList.add(putter);
 		currentClub = clubList.get(clubIndex);
 		range = currentClub.getRange();
+		double y = 20;
+		double x = 20; // TODO needs to be changed to be an argument in the player class when we get
+						// the chance
+		xLoc = x;
+		yLoc = y;
+		xAim = range + xLoc;
+		yAim = yLoc;
+		angle = 0;
+		
+		ball = new Ball(xLoc, yLoc);
 	}
 
-	public void swing() {
+	public void moveAim(double dAngle) {
+		angle += dAngle;
+		yAim = range * Math.sin(angle);
+		xAim = range * Math.cos(angle);
+		repaint();
+	}
 
+	public void swing(double power) {
+		xLoc += power * Math.cos(angle);
+		yLoc += power * Math.sin(angle);
+		strokes += 1;
+		repaint();
+		ball.getHit(xLoc,yLoc);
 	}
 
 	public int getStrokes() {
@@ -43,12 +66,19 @@ public class Player extends JPanel {
 		if (clubIndex > 3)
 			clubIndex = 0;
 		currentClub = clubList.get(clubIndex);
+		range = currentClub.getRange();
+		repaint();
 	}
-@Override	
-	protected void paintComponent(java.awt.Graphics g) {
-		super.paintComponent(g);
-		java.awt.Graphics2D g2 = (java.awt.Graphics2D) g;
-		g2.draw(new Rectangle(xLoc,yLoc,40,50));
+
+	protected void draw(java.awt.Graphics2D g2) {
+		Color old = g2.getColor();
+		g2.setColor(Color.WHITE);
+		g2.draw(new Rectangle((int) xLoc, (int) yLoc, 40, 50)); // ball character
+		g2.setColor(Color.RED);
+		g2.draw(new Rectangle((int) xAim, (int) yAim, 20, 20)); // aiming tool
+		
+		g2.setColor(old);
+
 //		g2.drawImage(, 0, 0, currentClub.getWidth(), currentClub.getHeight(), this);
 
 //		if (spriteLoaded) {
