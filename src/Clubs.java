@@ -20,8 +20,8 @@ public class Clubs extends JPanel{
 
 	}
 
-	public void swing() {
-
+	public void hit(int direction, int power, Ball b) {
+		// do as percentage of max power
 	}
 
 	public double getRange() {

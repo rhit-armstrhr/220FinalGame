@@ -7,7 +7,7 @@ import java.util.ArrayList;
 */
 
 public class Courses {
-	private int currentHole;
+	private int currentHole = 0;
 	private ArrayList<Hole> holes= new ArrayList<>();
 	
 	public Courses() {
@@ -16,5 +16,10 @@ public class Courses {
 
 	public Hole getHole() {
 		return holes.get(currentHole);
+		
+	}
+	
+	public void advanceHole() {
+	currentHole ++;
 	}
 }
