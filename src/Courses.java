@@ -1,4 +1,5 @@
 import java.awt.Component;
+import java.awt.Graphics2D;
 import java.util.ArrayList;
 
 /**
@@ -12,12 +13,19 @@ public class Courses {
 	
 	public Courses() {
 		holes.add(new Hole("src/Images/Hole1.png", 1, 3));
+		System.out.println("Courses Image");
 	}
 
 	public Hole getHole() {
 		return holes.get(currentHole);
 		
 	}
+	
+	
+	public void draw(Graphics2D g2) {
+		holes.get(currentHole).draw(g2);
+	}
+	
 	
 	public void advanceHole() {
 	currentHole ++;

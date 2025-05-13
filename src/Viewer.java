@@ -15,20 +15,15 @@ public class Viewer {
 	
 	public static void createGUI() {
 		frame = new JFrame("Viewer");
-		JPanel panel  = new JPanel();
-		Courses c = new Courses();
-		Player p = new Player();
-		ScoreBoard sb = new ScoreBoard();
-		
-		panel.add(c.getHole());
-		
-		panel.add(sb);
-		
-//		frame.add(p);
-		frame.add(panel);
-		frame.setSize(600, 400);
-		frame.pack();
+		GamePanel gp = new GamePanel();
+		frame.setSize(1280, 755);
 		frame.setLocationRelativeTo(null);
+		
+		frame.add(gp);
+		
+		
+//		frame.pack();
+		
 		
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setVisible(true);

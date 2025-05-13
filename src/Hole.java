@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
+import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
@@ -13,7 +14,7 @@ import javax.swing.JPanel;
 * Used only 220 materials
 */
 
-public class Hole extends JPanel{
+public class Hole extends JPanel {
 
 	private int holeNum;
 	private int par;
@@ -24,23 +25,26 @@ public class Hole extends JPanel{
 	public Hole(String file, int holeNum, int par) {
 		this.holeNum = holeNum;
 		this.par = par;
-		
+		System.out.println("Hole 1");
 		try {
 			image = ImageIO.read(new File(file));
 		} catch (IOException e) {
 			e.printStackTrace();
 			System.out.println("Failed to Load Image for hole" + holeNum);
 		} 
+		System.out.println("Hole 2");
+		
 		setPreferredSize(new Dimension(image.getWidth(), image.getHeight()));
+		
+		System.out.println(image.getWidth());
 	}
 	
+	
 	// return what to draw and have a central drawing area
-	@Override
-	protected void paintComponent(java.awt.Graphics g) {
-		super.paintComponent(g);
-		java.awt.Graphics2D g2 = (Graphics2D) g;
-		
+	public void draw(Graphics2D g2) {
 		
 		g2.drawImage(image, 0, 0, image.getWidth(), image.getHeight(), this);
+		
+		repaint();
 	}
 }
