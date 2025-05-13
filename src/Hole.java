@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
+import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 /**
@@ -33,7 +34,7 @@ public class Hole extends JPanel{
 		setPreferredSize(new Dimension(image.getWidth(), image.getHeight()));
 	}
 	
-	
+	// return what to draw and have a central drawing area
 	@Override
 	protected void paintComponent(java.awt.Graphics g) {
 		super.paintComponent(g);
