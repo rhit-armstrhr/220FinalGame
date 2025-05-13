@@ -5,7 +5,7 @@ import javax.swing.JPanel;
 import java.awt.Rectangle;
 import java.awt.Shape;
 
-public class Clubs extends JPanel{
+public class Clubs extends JPanel {
 
 	double range;
 	private String title;
@@ -29,8 +29,8 @@ public class Clubs extends JPanel{
 	}
 
 	public Shape getImage(int x, int y) {
-		//return image;
-		return new Rectangle(x, y, 40, 10); 
+		// return image;
+		return new Rectangle(x, y, 40, 10);
 	}
 
 }
