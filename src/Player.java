@@ -1,4 +1,5 @@
 import java.awt.Color;
+import java.awt.Rectangle;
 import java.util.ArrayList;
 
 import javax.swing.JPanel;
@@ -43,11 +44,12 @@ public class Player extends JPanel {
 			clubIndex = 0;
 		currentClub = clubList.get(clubIndex);
 	}
-
+@Override	
 	protected void paintComponent(java.awt.Graphics g) {
 		super.paintComponent(g);
 		java.awt.Graphics2D g2 = (java.awt.Graphics2D) g;
-		currentClub.getImage(xLoc, yLoc);
+		g2.draw(new Rectangle(xLoc,yLoc,40,50));
+//		g2.drawImage(, 0, 0, currentClub.getWidth(), currentClub.getHeight(), this);
 
 //		if (spriteLoaded) {
 //			g2.drawImage(image, x, y, rad, rad, this);

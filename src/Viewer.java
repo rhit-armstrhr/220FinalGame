@@ -1,3 +1,4 @@
+
 /**
  * @author Frank LaMantia
 * Used only 220 materials
@@ -9,21 +10,24 @@ import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 
 public class Viewer {
+	static JFrame frame;
 
-	public static void createGUI() {
-		JFrame frame = new JFrame("Viewer");
-		
+	public void createGUI() {
+		frame = new JFrame("Viewer");
+
 		Courses c = new Courses();
 		Player p = new Player();
-		
 		frame.add(c.getHole());
-		frame.add(p);
-		
+//		frame.add(p);
 		frame.setSize(600, 400);
 		frame.pack();
 		frame.setLocationRelativeTo(null);
-		
+
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setVisible(true);
+	}
+
+	public JFrame getFrame() {
+		return frame;
 	}
 }
