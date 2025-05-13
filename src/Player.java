@@ -8,7 +8,6 @@ public class Player extends JPanel {
 	public int strokes;
 	private double xLoc, yLoc;
 	private double xAim, yAim, angle;
-
 	private int clubIndex = 0;
 	private Clubs currentClub;
 	private double shotAngle = 90;
@@ -38,7 +37,7 @@ public class Player extends JPanel {
 		xAim = range + xLoc;
 		yAim = yLoc;
 		angle = 0;
-		
+
 		ball = new Ball(xLoc, yLoc);
 	}
 
@@ -54,7 +53,7 @@ public class Player extends JPanel {
 		yLoc += power * Math.sin(angle);
 		strokes += 1;
 		repaint();
-		ball.getHit(xLoc,yLoc);
+		ball.getHit(xLoc, yLoc);
 	}
 
 	public int getStrokes() {
@@ -76,11 +75,10 @@ public class Player extends JPanel {
 		g2.draw(new Rectangle((int) xLoc, (int) yLoc, 40, 50)); // ball character
 		g2.setColor(Color.RED);
 		g2.draw(new Rectangle((int) xAim, (int) yAim, 20, 20)); // aiming tool
-		
+
 		g2.setColor(old);
 
 //		g2.drawImage(, 0, 0, currentClub.getWidth(), currentClub.getHeight(), this);
-
 //		if (spriteLoaded) {
 //			g2.drawImage(image, x, y, rad, rad, this);
 //		} else {

@@ -11,9 +11,9 @@ public class main {
 	view.createGUI();
 //	SwingUtilities.invokeLater(() -> view.createGUI());
 	Player p = new Player();
-
-	Controller control = new Controller(view.getFrame(), p);
-	mainGame.setController(control);
+//
+//	Controller control = new Controller(view.getFrame(), p);
+//	mainGame.setController(control);
 
 			
 	}
