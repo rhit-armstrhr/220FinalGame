@@ -38,7 +38,12 @@ public class Controller {
 				case KeyEvent.VK_SPACE:
 					double power = 100;
 					player.swing(power);
-					System.out.println("Swing");
+					System.out.println("Swing: " + player.getStrokes());
+					break;
+				case KeyEvent.VK_SHIFT:
+					player.switchClub();
+					System.out.println("Switch Clubs");
+					break;
 				}
 			};
 		});
