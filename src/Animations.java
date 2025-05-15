@@ -12,22 +12,64 @@ import java.io.IOException;
 */
 
 public class Animations {
+	
+	
+
+	public static ArrayList<BufferedImage> clubs() {
+		ArrayList<BufferedImage> clubs = new ArrayList<>();
+		
+		try {
+			clubs.add(ImageIO.read(new File("src/Images/Clubs/Driver.png")));
+			clubs.add(ImageIO.read(new File("src/Images/Clubs/Iron.png")));
+			clubs.add(ImageIO.read(new File("src/Images/Clubs/Wedge.png")));
+			clubs.add(ImageIO.read(new File("src/Images/Clubs/Putter.png")));
+			} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			System.out.println("Clubs Failed to Load");
+		}
+		
+		return clubs;
+		
+	}
+	
+	public static ArrayList<BufferedImage> windDirections() {
+		ArrayList<BufferedImage> wind = new ArrayList<>();
+		
+		try {
+			wind.add(ImageIO.read(new File("src/Images/Wind/N-Wind.png")));
+			wind.add(ImageIO.read(new File("src/Images/Wind/NE-Wind.png")));
+			wind.add(ImageIO.read(new File("src/Images/Wind/E-Wind.png")));
+			wind.add(ImageIO.read(new File("src/Images/Wind/SE-Wind.png")));
+			wind.add(ImageIO.read(new File("src/Images/Wind/S-Wind.png")));
+			wind.add(ImageIO.read(new File("src/Images/Wind/SW-Wind.png")));
+			wind.add(ImageIO.read(new File("src/Images/Wind/W-Wind.png")));
+			wind.add(ImageIO.read(new File("src/Images/Wind/NW-Wind.png")));
+			} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			System.out.println("Wind Failed to Load");
+		}
+		
+		return wind;
+		
+	}
 
 	public static ArrayList<BufferedImage> ballArc() {
 		ArrayList<BufferedImage> ball = new ArrayList<>();
 		
 		try {
-			ball.add(ImageIO.read(new File("src/Images/Ball/Ball-Lay_0000.png")));
-			ball.add(ImageIO.read(new File("src/Images/Ball/Ball-Lay_0001.png")));
-			ball.add(ImageIO.read(new File("src/Images/Ball/Ball-Lay_0002.png")));
-			ball.add(ImageIO.read(new File("src/Images/Ball/Ball-Lay_0003.png")));
-			ball.add(ImageIO.read(new File("src/Images/Ball/Ball-Lay_0004.png")));
-			ball.add(ImageIO.read(new File("src/Images/Ball/Ball-Lay_0005.png")));
-			ball.add(ImageIO.read(new File("src/Images/Ball/Ball-Lay_0006.png")));
-			ball.add(ImageIO.read(new File("src/Images/Ball/Ball-Lay_0007.png")));
-			ball.add(ImageIO.read(new File("src/Images/Ball/Ball-Lay_0008.png")));
-			ball.add(ImageIO.read(new File("src/Images/Ball/Ball-Lay_0009.png")));
-			ball.add(ImageIO.read(new File("src/Images/Ball/Ball-Lay_00010.png")));
+			ball.add(ImageIO.read(new File("src/Images/Ball/Ball-Sprites_0000.png")));
+			ball.add(ImageIO.read(new File("src/Images/Ball/Ball-Sprites_0001.png")));
+			ball.add(ImageIO.read(new File("src/Images/Ball/Ball-Sprites_0002.png")));
+			ball.add(ImageIO.read(new File("src/Images/Ball/Ball-Sprites_0003.png")));
+			ball.add(ImageIO.read(new File("src/Images/Ball/Ball-Sprites_0004.png")));
+			ball.add(ImageIO.read(new File("src/Images/Ball/Ball-Sprites_0005.png")));
+			ball.add(ImageIO.read(new File("src/Images/Ball/Ball-Sprites_0006.png")));
+			ball.add(ImageIO.read(new File("src/Images/Ball/Ball-Sprites_0007.png")));
+			ball.add(ImageIO.read(new File("src/Images/Ball/Ball-Sprites_0008.png")));
+			ball.add(ImageIO.read(new File("src/Images/Ball/Ball-Sprites_0009.png")));
+			ball.add(ImageIO.read(new File("src/Images/Ball/Ball-Sprites_0010.png")));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
