@@ -1,6 +1,7 @@
 import java.awt.Graphics2D;
 
 import javax.swing.JComponent;
+import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 /**
@@ -14,13 +15,16 @@ public class GamePanel extends JComponent {
 	private Ball b;
 	private ScoreBoard sb;
 	private Courses c;
+	private Controller con;
 	
 	
-	public GamePanel() {
+	
+	public GamePanel(JFrame frame) {
 		c = new Courses();
 		double startY = c.getHole().getStartY();
 		double startX= c.getHole().getStartX();
 		p = new Player(startX,startY);
+		con = new Controller(frame,p);
 		sb = new ScoreBoard();
 		
 		

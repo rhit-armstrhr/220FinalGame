@@ -15,7 +15,7 @@ public class Viewer {
 	
 	public static void createGUI() {
 		frame = new JFrame("Viewer");
-		GamePanel gp = new GamePanel();
+		GamePanel gp = new GamePanel(frame);
 		frame.setSize(1280, 755);
 		frame.setLocationRelativeTo(null);
 		

@@ -30,7 +30,7 @@ public class Player extends JPanel {
 		currentClub = clubList.get(clubIndex);
 		range = currentClub.getRange();
 		double y = startY;
-		double x = startX; // TODO needs to be changed to be an argument in the player class when we get
+		double x = startX; // done needs to be changed to be an argument in the player class when we get
 						// the chance
 		xLoc = x;
 		yLoc = y;
@@ -53,8 +53,9 @@ public class Player extends JPanel {
 		yLoc += power * Math.sin(angle);
 		strokes += 1;
 		repaint();
+		System.out.println(xLoc+",  "+yLoc);
 		ball.getHit(xLoc, yLoc);
-	}
+	}  
 
 	public int getStrokes() {
 		return this.strokes;
@@ -87,5 +88,6 @@ public class Player extends JPanel {
 //			g2.fillOval(x, y, rad, rad);
 //		}
 	}
+	
 
 }
