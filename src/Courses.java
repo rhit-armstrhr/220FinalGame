@@ -12,7 +12,7 @@ public class Courses {
 	private ArrayList<Hole> holes= new ArrayList<>();
 	
 	public Courses() {
-		holes.add(new Hole("src/Images/Hole1.png", 1, 3));
+		holes.add(new Hole("src/Images/Hole1.png", 1, 3,300,500));
 		System.out.println("Courses Image");
 	}
 

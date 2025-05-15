@@ -19,12 +19,15 @@ public class Hole extends JPanel {
 	private int holeNum;
 	private int par;
 	private BufferedImage image;
+	private double startX,startY;
 	
 	
 	
-	public Hole(String file, int holeNum, int par) {
+	public Hole(String file, int holeNum, int par, double startX, double startY) {
 		this.holeNum = holeNum;
 		this.par = par;
+		this.startX=startX;
+		this.startY=startY;
 		System.out.println("Hole 1");
 		try {
 			image = ImageIO.read(new File(file));
@@ -40,11 +43,20 @@ public class Hole extends JPanel {
 	}
 	
 	
+	
 	// return what to draw and have a central drawing area
 	public void draw(Graphics2D g2) {
 		
 		g2.drawImage(image, 0, 0, image.getWidth(), image.getHeight(), this);
 		
 		repaint();
+	}
+
+	public double getStartX() {
+		return this.startX;
+	}
+	public double getStartY() {
+		// TODO Auto-generated method stub
+		return this.startY;
 	}
 }

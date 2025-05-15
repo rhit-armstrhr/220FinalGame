@@ -18,7 +18,9 @@ public class GamePanel extends JComponent {
 	
 	public GamePanel() {
 		c = new Courses();
-		p = new Player();
+		double startY = c.getHole().getStartY();
+		double startX= c.getHole().getStartX();
+		p = new Player(startX,startY);
 		sb = new ScoreBoard();
 		
 		
@@ -30,6 +32,8 @@ public class GamePanel extends JComponent {
 		Graphics2D g2 = (Graphics2D) g;
 		
 		c.draw(g2);
+		p.draw(g2);
+		
 		
 	}
 }
