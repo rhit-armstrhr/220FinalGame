@@ -32,7 +32,8 @@ public class GamePanel extends JComponent {
 		Graphics2D g2 = (Graphics2D) g;
 
 		c.draw(g2);
-		p.draw(g2);
 
+		p.draw(g2);
+		sb.draw(g2);
 	}
 }

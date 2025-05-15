@@ -17,9 +17,14 @@ public class ScoreBoard extends JPanel {
 
 	private BufferedImage ScoreCard;
 	private BufferedImage HoleCard;
-	private ArrayList<BufferedImage> WindDirection;
+	private ArrayList<BufferedImage> windDirection;
+	private ArrayList<BufferedImage> club;
+	private int currentClub = 0;
+	private int direction = 0;
 	
 	public ScoreBoard() {
+		windDirection = Animations.windDirections();
+		club = Animations.clubs();
 		try {
 			ScoreCard = ImageIO.read(new File("src/Images/ScoreBoard.png"));
 			HoleCard = ImageIO.read(new File("src/Images/HoleCounter.png"));
@@ -30,13 +35,10 @@ public class ScoreBoard extends JPanel {
 		}
 	}
 	
-	@Override
-	protected void paintComponent(java.awt.Graphics g) {
-		super.paintComponent(g);
-		java.awt.Graphics2D g2 = (Graphics2D) g;
-		
-		
+	public void draw(java.awt.Graphics2D g2) {
 		g2.drawImage(HoleCard, 10, 10, HoleCard.getWidth(), HoleCard.getHeight(), this);
-		g2.drawImage(ScoreCard, 100, 10, ScoreCard.getWidth(), ScoreCard.getHeight(), this);
+		g2.drawImage(ScoreCard, 115, 11, ScoreCard.getWidth(), ScoreCard.getHeight(), this);
+		g2.drawImage(club.get(currentClub), 10, 590, club.get(currentClub).getWidth(), club.get(currentClub).getHeight(), this);
+		g2.drawImage(windDirection.get(direction), 10, 100, windDirection.get(direction).getWidth(), windDirection.get(direction).getHeight(), this);
 		} 
 }
