@@ -31,7 +31,7 @@ public class Player extends JPanel {
 		range = currentClub.getRange();
 		double y = startY;
 		double x = startX; // done needs to be changed to be an argument in the player class when we get
-						// the chance
+							// the chance
 		xLoc = x;
 		yLoc = y;
 		xAim = range + xLoc;
