@@ -21,7 +21,7 @@ public class Player extends JPanel {
 		// TODO Auto-generated constructor stub
 		strokes = 0;
 		Clubs driver = new Clubs(450, "driver");
-		Clubs iron = new Clubs(140, "iron");
+		Clubs iron = new Clubs(275, "iron");
 		Clubs wedge = new Clubs(90, "wedge");
 		Clubs putter = new Clubs(30, "putter");
 
@@ -41,14 +41,15 @@ public class Player extends JPanel {
 		angle = 0;
 
 		this.ball = ball;
-		
+
 		clubImage = Animations.clubs();
 	}
 
 	public void moveAim(double dAngle) {
 		angle += dAngle;
-		yAim = range * Math.sin(angle);
-		xAim = range * Math.cos(angle);
+		yAim = yLoc + range * Math.sin(angle);
+		xAim = xLoc + range * Math.cos(angle);
+		System.out.println("aiming @" + angle + ",  " + dAngle);
 		repaint();
 	}
 
@@ -56,10 +57,11 @@ public class Player extends JPanel {
 		xLoc += power * clubList.get(clubIndex).getRange() * Math.cos(angle);
 		yLoc += power * clubList.get(clubIndex).getRange() * Math.sin(angle);
 		strokes += 1;
+		moveAim(0);  // update the aim function so it gets redrawn
 		repaint();
-		System.out.println(xLoc+",  "+yLoc);
+		System.out.println(xLoc + ",  " + yLoc);
 		ball.getHit(xLoc, yLoc);
-	}  
+	}
 
 	public int getStrokes() {
 		return this.strokes;
@@ -71,6 +73,7 @@ public class Player extends JPanel {
 			clubIndex = 0;
 		currentClub = clubList.get(clubIndex);
 		range = currentClub.getRange();
+		moveAim(0);  // update the aim function so it gets redrawn
 		repaint();
 	}
 
@@ -94,6 +97,5 @@ public class Player extends JPanel {
 //			g2.fillOval(x, y, rad, rad);
 //		}
 	}
-	
 
 }
