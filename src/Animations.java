@@ -14,6 +14,57 @@ import java.io.IOException;
 public class Animations {
 	
 	
+	public static ArrayList<BufferedImage> smallNums() {
+		ArrayList<BufferedImage> smallNums = new ArrayList<>();
+		
+		try {
+			smallNums.add(ImageIO.read(new File("src/Images/SmallNumbers/small_0.png")));
+			smallNums.add(ImageIO.read(new File("src/Images/SmallNumbers/small_1.png")));
+			smallNums.add(ImageIO.read(new File("src/Images/SmallNumbers/small_2.png")));
+			smallNums.add(ImageIO.read(new File("src/Images/SmallNumbers/small_3.png")));
+			smallNums.add(ImageIO.read(new File("src/Images/SmallNumbers/small_4.png")));
+			smallNums.add(ImageIO.read(new File("src/Images/SmallNumbers/small_5.png")));
+			smallNums.add(ImageIO.read(new File("src/Images/SmallNumbers/small_6.png")));
+			smallNums.add(ImageIO.read(new File("src/Images/SmallNumbers/small_7.png")));
+			smallNums.add(ImageIO.read(new File("src/Images/SmallNumbers/small_8.png")));
+			smallNums.add(ImageIO.read(new File("src/Images/SmallNumbers/small_9.png")));
+			
+			
+			} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			System.out.println("small Numbers Failed to Load");
+		}
+		
+		return smallNums;
+		
+	}
+	
+	public static ArrayList<BufferedImage> bigNums() {
+		ArrayList<BufferedImage> bigNums = new ArrayList<>();
+		
+		try {
+			bigNums.add(ImageIO.read(new File("src/Images/BigNumbers/Big_1.png")));
+			bigNums.add(ImageIO.read(new File("src/Images/BigNumbers/Big_2.png")));
+			bigNums.add(ImageIO.read(new File("src/Images/BigNumbers/Big_3.png")));
+			bigNums.add(ImageIO.read(new File("src/Images/BigNumbers/Big_4.png")));
+			bigNums.add(ImageIO.read(new File("src/Images/BigNumbers/Big_5.png")));
+			bigNums.add(ImageIO.read(new File("src/Images/BigNumbers/Big_6.png")));
+			bigNums.add(ImageIO.read(new File("src/Images/BigNumbers/Big_7.png")));
+			bigNums.add(ImageIO.read(new File("src/Images/BigNumbers/Big_8.png")));
+			bigNums.add(ImageIO.read(new File("src/Images/BigNumbers/Big_9.png")));
+			bigNums.add(ImageIO.read(new File("src/Images/BigNumbers/Big_0.png")));
+			
+			} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			System.out.println("Big Numbers Failed to Load");
+		}
+		
+		return bigNums;
+		
+	}
+	
 
 	public static ArrayList<BufferedImage> clubs() {
 		ArrayList<BufferedImage> clubs = new ArrayList<>();

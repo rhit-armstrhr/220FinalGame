@@ -1,3 +1,4 @@
+import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
@@ -10,13 +11,14 @@ import javax.swing.JPanel;
 
 public class Ball extends JPanel {
 
-	private double x, y;
+	private int x, y;
 	private int height;
 	private ArrayList<BufferedImage> ballFrames = Animations.ballArc();
+	private int currentFrame = 0;
 
 	public Ball(double startX, double startY) {
-		x = startX;
-		y = startY;
+		x = (int) startX;
+		y = (int) startY;
 		height = 0;
 
 	}
@@ -26,9 +28,15 @@ public class Ball extends JPanel {
 	}
 
 	public void getHit(double xLoc, double yLoc) {
-		x = xLoc;
-		y = yLoc;
+		x = (int) xLoc;
+		y = (int) yLoc;
 	
 	}
+	
+	public void draw(Graphics2D g2) {
+		g2.drawImage(ballFrames.get(currentFrame), x, y,ballFrames.get(currentFrame).getWidth(), ballFrames.get(currentFrame).getHeight(), this);
+		repaint();
+	}
 
+//	public void update
 }

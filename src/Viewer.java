@@ -13,18 +13,25 @@ import javax.swing.SwingUtilities;
 public class Viewer {
 
 	static JFrame frame;
-
-	public static void createGUI() {
+	private GamePanel gp;
+	
+	public void createGUI() {
 		frame = new JFrame("Viewer");
-		GamePanel gp = new GamePanel(frame);
+		gp = new GamePanel(frame);
 		frame.setSize(1280, 755);
 		frame.setLocationRelativeTo(null);
-
 		frame.add(gp);
 
 //		frame.pack();
 
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setVisible(true);
+	}
+	
+	public void update() {
+		gp.update();
+	}
+	public void drawScreen() {
+		gp.drawScreen();
 	}
 }

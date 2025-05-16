@@ -36,7 +36,7 @@ public class Controller {
 					System.out.println("left");
 					break;
 				case KeyEvent.VK_SPACE:
-					double power = 100;
+					double power = 1;
 					player.swing(power);
 					System.out.println("Swing: " + player.getStrokes());
 					break;

@@ -41,9 +41,7 @@ public class Hole extends JPanel {
 
 	// return what to draw and have a central drawing area
 	public void draw(Graphics2D g2) {
-
 		g2.drawImage(image, 0, 0, image.getWidth(), image.getHeight(), this);
-
 		repaint();
 	}
 

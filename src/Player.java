@@ -1,5 +1,6 @@
 import java.awt.Color;
 import java.awt.Rectangle;
+import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import javax.swing.JPanel;
 
@@ -13,9 +14,10 @@ public class Player extends JPanel {
 	private double shotAngle = 90;
 	private double range;
 	public ArrayList<Clubs> clubList = new ArrayList<Clubs>();
+	private ArrayList<BufferedImage> clubImage;
 	private Ball ball;
 
-	public Player(double startX, double startY) {
+	public Player(double startX, double startY, Ball ball) {
 		// TODO Auto-generated constructor stub
 		strokes = 0;
 		Clubs driver = new Clubs(450, "driver");
@@ -38,7 +40,9 @@ public class Player extends JPanel {
 		yAim = yLoc;
 		angle = 0;
 
-		ball = new Ball(xLoc, yLoc);
+		this.ball = ball;
+		
+		clubImage = Animations.clubs();
 	}
 
 	public void moveAim(double dAngle) {
@@ -49,8 +53,8 @@ public class Player extends JPanel {
 	}
 
 	public void swing(double power) {
-		xLoc += power * Math.cos(angle);
-		yLoc += power * Math.sin(angle);
+		xLoc += power * clubList.get(clubIndex).getRange() * Math.cos(angle);
+		yLoc += power * clubList.get(clubIndex).getRange() * Math.sin(angle);
 		strokes += 1;
 		repaint();
 		System.out.println(xLoc+",  "+yLoc);
@@ -80,6 +84,8 @@ public class Player extends JPanel {
 		g2.setColor(old);
 		repaint();
 
+		g2.drawImage(clubImage.get(clubIndex), 10, 590, clubImage.get(clubIndex).getWidth(),
+				clubImage.get(clubIndex).getHeight(), this);
 //		g2.drawImage(, 0, 0, currentClub.getWidth(), currentClub.getHeight(), this);
 //		if (spriteLoaded) {
 //			g2.drawImage(image, x, y, rad, rad, this);
