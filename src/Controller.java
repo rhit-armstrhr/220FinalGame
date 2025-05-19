@@ -12,27 +12,24 @@ public class Controller {
 		// TODO Auto-generated constructor stub
 		this.frame = jFrame;
 		this.player = p;
-		Timer animation = new Timer(20, e -> getAndHandleEvents());
-		animation.start();
 		addListeners();
 
 	}
 
 	private void addListeners() {
-		// TODO Auto-generated method stub
+
 		double angleOfAiming = 0.15; // about 20 deg in radians
+
 		frame.addKeyListener(new java.awt.event.KeyAdapter() {
 			@Override
 			public void keyPressed(java.awt.event.KeyEvent e) {
 				switch (e.getKeyCode()) {
 				case KeyEvent.VK_RIGHT:
-					// canvas.moveDelta(10);
-					player.moveAim( angleOfAiming);
+					player.moveAim(angleOfAiming);
 					System.out.println("right");
 					break;
 				case KeyEvent.VK_LEFT:
-//					canvas.moveDelta(-10);
-					player.moveAim(-1 *angleOfAiming);
+					player.moveAim(-1 * angleOfAiming);
 					System.out.println("left");
 					break;
 				case KeyEvent.VK_SPACE:
@@ -47,11 +44,6 @@ public class Controller {
 				}
 			};
 		});
-	}
-
-	private void getAndHandleEvents() {
-		// TODO Auto-generated method stub
-//System.out.println("run");
 	}
 
 	public void addFrame(JFrame frame) {

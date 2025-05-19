@@ -49,7 +49,9 @@ public class Player extends JPanel {
 		angle += dAngle;
 		yAim = yLoc + range * Math.sin(angle);
 		xAim = xLoc + range * Math.cos(angle);
+
 		System.out.println("aiming @" + angle + ",  " + dAngle);
+		System.out.println(xAim+",  "+yAim + ", " + dAngle);
 		repaint();
 	}
 
@@ -73,7 +75,7 @@ public class Player extends JPanel {
 			clubIndex = 0;
 		currentClub = clubList.get(clubIndex);
 		range = currentClub.getRange();
-		moveAim(0);  // update the aim function so it gets redrawn
+		this.moveAim(0);
 		repaint();
 	}
 
@@ -81,12 +83,11 @@ public class Player extends JPanel {
 		Color old = g2.getColor();
 		g2.setColor(Color.WHITE);
 		g2.draw(new Rectangle((int) xLoc, (int) yLoc, 40, 50)); // ball character
+		
 		g2.setColor(Color.RED);
 		g2.fill(new Rectangle((int) xAim, (int) yAim, 15, 15)); // aiming tool
-
+		
 		g2.setColor(old);
-		repaint();
-
 		g2.drawImage(clubImage.get(clubIndex), 10, 590, clubImage.get(clubIndex).getWidth(),
 				clubImage.get(clubIndex).getHeight(), this);
 //		g2.drawImage(, 0, 0, currentClub.getWidth(), currentClub.getHeight(), this);
