@@ -20,19 +20,20 @@ public class Controller {
 
 	private void addListeners() {
 		// TODO Auto-generated method stub
-		double angleOfAiming = 20 / 180 * Math.PI;
+		float angleOfAiming = 2 * (float)(Math.PI/180);
+		System.out.println(angleOfAiming + " is ");
 		frame.addKeyListener(new java.awt.event.KeyAdapter() {
 			@Override
 			public void keyPressed(java.awt.event.KeyEvent e) {
 				switch (e.getKeyCode()) {
 				case KeyEvent.VK_RIGHT:
 					// canvas.moveDelta(10);
-					player.moveAim(-1 * angleOfAiming);
+					player.moveAim(angleOfAiming);
 					System.out.println("right");
 					break;
 				case KeyEvent.VK_LEFT:
 //					canvas.moveDelta(-10);
-					player.moveAim(angleOfAiming);
+					player.moveAim(-1 * angleOfAiming);
 					System.out.println("left");
 					break;
 				case KeyEvent.VK_SPACE:
