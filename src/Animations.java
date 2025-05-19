@@ -44,6 +44,7 @@ public class Animations {
 		ArrayList<BufferedImage> bigNums = new ArrayList<>();
 		
 		try {
+			bigNums.add(ImageIO.read(new File("src/Images/BigNumbers/Big_0.png")));
 			bigNums.add(ImageIO.read(new File("src/Images/BigNumbers/Big_1.png")));
 			bigNums.add(ImageIO.read(new File("src/Images/BigNumbers/Big_2.png")));
 			bigNums.add(ImageIO.read(new File("src/Images/BigNumbers/Big_3.png")));
@@ -53,7 +54,6 @@ public class Animations {
 			bigNums.add(ImageIO.read(new File("src/Images/BigNumbers/Big_7.png")));
 			bigNums.add(ImageIO.read(new File("src/Images/BigNumbers/Big_8.png")));
 			bigNums.add(ImageIO.read(new File("src/Images/BigNumbers/Big_9.png")));
-			bigNums.add(ImageIO.read(new File("src/Images/BigNumbers/Big_0.png")));
 			
 			} catch (IOException e) {
 			// TODO Auto-generated catch block
