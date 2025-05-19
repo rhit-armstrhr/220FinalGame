@@ -25,13 +25,19 @@ public class Hole extends JPanel {
 	private ArrayList<BufferedImage> bigNums;
 	private ArrayList<BufferedImage> windDirection;
 	private int direction = 0;
-	private Random r = new Random();
+	private Random rand = new Random();
+	private double l,r,b,t;
 
-	public Hole(String file, int holeNum, int par, double startX, double startY) {
+	public Hole(String file, int holeNum, int par, double startX, double startY,double leftPin,double rightPin,double bottomPin,double topPin) {
 		this.holeNum = holeNum;
 		this.par = par;
 		this.startX = startX;
 		this.startY = startY;
+		this.l = leftPin;
+		this.r = rightPin;
+		this.b = bottomPin;
+		this.t = topPin;
+
 		System.out.println("Hole 1");
 		bigNums = Animations.bigNums();
 
@@ -74,6 +80,12 @@ public class Hole extends JPanel {
 	}
 
 	public void newWind() {
-		direction = r.nextInt(windDirection.size());
+		direction = rand.nextInt(windDirection.size());
 	}
+
+	public double getL() {return this.l;	}	
+	public double getR() {return this.r;	}
+	public double getB() {return this.b;	}
+	public double getT() {return this.t;	}
+
 }

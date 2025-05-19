@@ -22,6 +22,14 @@ public class Ball extends JPanel {
 		height = 0;
 
 	}
+	
+	public Boolean checkPin(double l, double r, double b, double t) {
+		//l = left, r = right, b = bottom, t = top of the border of the pin hole location for each hole passed in. 
+		if(x <=r && l<=x && y<=b&&t<=y) {
+			return true;
+		}
+		return false;
+	}
 
 	public void getBlown(double x,double y) {
 		

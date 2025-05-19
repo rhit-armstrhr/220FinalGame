@@ -59,15 +59,12 @@ public class Player extends JPanel {
 		xLoc += power * clubList.get(clubIndex).getRange() * Math.cos(angle);
 		yLoc += power * clubList.get(clubIndex).getRange() * Math.sin(angle);
 		strokes += 1;
-		moveAim(0);  // update the aim function so it gets redrawn
+		moveAim(0); // update the aim function so it gets redrawn
 		repaint();
 		System.out.println(xLoc + ",  " + yLoc);
 		ball.getHit(xLoc, yLoc);
 	}
 
-	public int getStrokes() {
-		return this.strokes;
-	}
 
 	public void switchClub() {
 		clubIndex += 1;
@@ -83,10 +80,10 @@ public class Player extends JPanel {
 		Color old = g2.getColor();
 		g2.setColor(Color.WHITE);
 		g2.draw(new Rectangle((int) xLoc, (int) yLoc, 40, 50)); // ball character
-		
+
 		g2.setColor(Color.RED);
 		g2.fill(new Rectangle((int) xAim, (int) yAim, 15, 15)); // aiming tool
-		
+
 		g2.setColor(old);
 		g2.drawImage(clubImage.get(clubIndex), 10, 590, clubImage.get(clubIndex).getWidth(),
 				clubImage.get(clubIndex).getHeight(), this);
@@ -97,6 +94,13 @@ public class Player extends JPanel {
 //			g2.setColor(Color.CYAN);
 //			g2.fillOval(x, y, rad, rad);
 //		}
+	}
+
+	public Ball getBall() {
+		return this.ball;
+	}
+	public int getStrokes() {
+		return this.strokes;
 	}
 
 }
