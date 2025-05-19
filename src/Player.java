@@ -65,7 +65,6 @@ public class Player extends JPanel {
 		ball.getHit(xLoc, yLoc);
 	}
 
-
 	public void switchClub() {
 		clubIndex += 1;
 		if (clubIndex > 3)
@@ -99,13 +98,19 @@ public class Player extends JPanel {
 	public Ball getBall() {
 		return this.ball;
 	}
+
 	public int getStrokes() {
 		return this.strokes;
 	}
 
-	public void nextHole(double startX, double startY) {
+	public void nextHole(double startX, double startY, int clubReset, int aimReset) {
 		xLoc = startX;
 		yLoc = startY;
+		this.clubIndex = 3;
+		this.switchClub();
+		this.angle = aimReset;
+		this.moveAim(aimReset);
+		this.repaint();
 	}
 
 }

@@ -42,12 +42,11 @@ public class GamePanel extends JComponent {
 	}
 
 	private void nextHole() {
-		// TODO Auto-generated method stub
 		double startY = c.getHole().getStartY();
 		double startX = c.getHole().getStartX();
 		b.nextHole(startX, startY);
-		p.nextHole(startX,startY);
-		
+		p.nextHole(startX,startY,0,0);
+		sb.nextHole(p.getStrokes());
 	}
 
 	public void drawScreen() {

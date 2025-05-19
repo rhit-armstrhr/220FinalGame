@@ -20,6 +20,7 @@ public class ScoreBoard extends JPanel {
 	private ArrayList<BufferedImage> smallNums;
 
 	private int strokes = 0;
+	private int score = 0;
 	private int firstDigit = 0;
 	private boolean doubleDigits = false;
 
@@ -68,5 +69,10 @@ public class ScoreBoard extends JPanel {
 
 	public void update() {
 
+	}
+
+	public void nextHole(int holeScore) {
+		// TODO Auto-generated method stub
+		score += holeScore;
 	}
 }
