@@ -50,8 +50,8 @@ public class Player extends JPanel {
 		yAim = yLoc + range * Math.sin(angle);
 		xAim = xLoc + range * Math.cos(angle);
 
-		System.out.println("aiming @" + angle + ",  " + dAngle);
-		System.out.println(xAim+",  "+yAim + ", " + dAngle);
+//		System.out.println("aiming @" + angle + ",  " + dAngle);
+//		System.out.println(xAim+",  "+yAim + ", " + dAngle);
 		repaint();
 	}
 
