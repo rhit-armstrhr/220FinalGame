@@ -31,6 +31,7 @@ public class GamePanel extends JComponent {
 	public void update() {
 		sb.strokesUpdate(p.getStrokes());
 		sb.update();
+		b.update();
 		
 		Hole hole = c.getHole();		//the hole logic for making the next hole. 
 		boolean done= p.getBall().checkPin(hole.getL(), hole.getR(), hole.getB(), hole.getT());

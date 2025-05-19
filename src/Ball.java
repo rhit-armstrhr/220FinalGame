@@ -6,7 +6,7 @@ import javax.swing.JPanel;
 
 /**
  * @author Frank LaMantia and Hayden Armstrong
- * Used only 220 materials
+ * 
  */
 
 public class Ball extends JPanel {
@@ -15,6 +15,13 @@ public class Ball extends JPanel {
 	private int height;
 	private ArrayList<BufferedImage> ballFrames = Animations.ballArc();
 	private int currentFrame = 0;
+	private boolean moving;
+	
+    private int frameCounter = 0;
+    private final int FRAME_DELAY = 5;  
+    private final double SPEED = 8;     
+    private double destX, destY;
+    private double speedx, speedy;
 
 	public Ball(double startX, double startY) {
 		x = (int) startX;
@@ -36,8 +43,14 @@ public class Ball extends JPanel {
 	}
 
 	public void getHit(double xLoc, double yLoc) {
-		x =  xLoc;
-		y = yLoc;
+		destX =  xLoc;
+		destY = yLoc;
+		double dx = destX - x;
+        double dy = destY - y;
+        double dist = Math.hypot(dx, dy);
+        speedx = SPEED * dx / dist;
+        speedy = SPEED * dy / dist;
+        moving = true;
 	
 	}
 	
@@ -51,5 +64,25 @@ public class Ball extends JPanel {
 		y =  startY;
 	}
 
-//	public void update
+	public void update() {
+		if(!moving) return;
+		
+		double xdist = destX - x;
+		double ydist = destY - y;
+		if(Math.hypot(xdist, ydist) <= SPEED) {
+			x = destX;
+			y = destY;
+			moving = false;
+		} else {
+			x += speedx;
+			y += speedy;
+			
+		}
+		
+		frameCounter++;
+		if(frameCounter >= FRAME_DELAY) {
+			frameCounter = 0;
+            currentFrame = (currentFrame + 1) % ballFrames.size();
+		}
+	}
 }
