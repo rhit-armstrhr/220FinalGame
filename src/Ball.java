@@ -11,7 +11,7 @@ import javax.swing.JPanel;
 
 public class Ball extends JPanel {
 
-	private int x, y;
+	private double x, y;
 	private int height;
 	private ArrayList<BufferedImage> ballFrames = Animations.ballArc();
 	private int currentFrame = 0;
@@ -36,14 +36,19 @@ public class Ball extends JPanel {
 	}
 
 	public void getHit(double xLoc, double yLoc) {
-		x = (int) xLoc;
-		y = (int) yLoc;
+		x =  xLoc;
+		y = yLoc;
 	
 	}
 	
 	public void draw(Graphics2D g2) {
-		g2.drawImage(ballFrames.get(currentFrame), x, y,ballFrames.get(currentFrame).getWidth(), ballFrames.get(currentFrame).getHeight(), this);
+		g2.drawImage(ballFrames.get(currentFrame), (int)x,(int) y,ballFrames.get(currentFrame).getWidth(), ballFrames.get(currentFrame).getHeight(), this);
 		repaint();
+	}
+
+	public void nextHole(double startX, double startY) {
+		x =  startX;
+		y =  startY;
 	}
 
 //	public void update

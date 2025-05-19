@@ -26,9 +26,10 @@ public class Hole extends JPanel {
 	private ArrayList<BufferedImage> windDirection;
 	private int direction = 0;
 	private Random rand = new Random();
-	private double l,r,b,t;
+	private double l, r, b, t;
 
-	public Hole(String file, int holeNum, int par, double startX, double startY,double leftPin,double rightPin,double bottomPin,double topPin) {
+	public Hole(String file, int holeNum, int par, double startX, double startY, double leftPin, double rightPin,
+			double bottomPin, double topPin) {
 		this.holeNum = holeNum;
 		this.par = par;
 		this.startX = startX;
@@ -68,6 +69,7 @@ public class Hole extends JPanel {
 				this);
 		g2.drawImage(bigNums.get(par), 120, 60, bigNums.get(par).getWidth(), bigNums.get(par).getHeight(), this);
 		repaint();
+		g2.drawRect((int) l, (int) t, (int) (r - l), (int) (b - t));
 	}
 
 	public double getStartX() {
@@ -83,9 +85,20 @@ public class Hole extends JPanel {
 		direction = rand.nextInt(windDirection.size());
 	}
 
-	public double getL() {return this.l;	}	
-	public double getR() {return this.r;	}
-	public double getB() {return this.b;	}
-	public double getT() {return this.t;	}
+	public double getL() {
+		return this.l;
+	}
+
+	public double getR() {
+		return this.r;
+	}
+
+	public double getB() {
+		return this.b;
+	}
+
+	public double getT() {
+		return this.t;
+	}
 
 }

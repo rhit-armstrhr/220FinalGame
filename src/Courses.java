@@ -11,7 +11,7 @@ public class Courses {
 	private ArrayList<Hole> holes = new ArrayList<>();
 
 	public Courses() {
-		holes.add(new Hole("src/Images/Hole1.png", 1, 3, 300, 500,600,608,203,190));
+		holes.add(new Hole("src/Images/Hole1.png", 1, 3, 300, 500, 1042, 1060, 200, 180));
 		System.out.println("Courses Image");
 	}
 
@@ -26,5 +26,7 @@ public class Courses {
 
 	public void advanceHole() {
 		currentHole++;
+		if (currentHole > holes.size())
+			currentHole = 0;
 	}
 }

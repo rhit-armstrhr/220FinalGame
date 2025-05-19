@@ -103,4 +103,9 @@ public class Player extends JPanel {
 		return this.strokes;
 	}
 
+	public void nextHole(double startX, double startY) {
+		xLoc = startX;
+		yLoc = startY;
+	}
+
 }

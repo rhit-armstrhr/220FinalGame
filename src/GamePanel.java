@@ -31,8 +31,23 @@ public class GamePanel extends JComponent {
 	public void update() {
 		sb.strokesUpdate(p.getStrokes());
 		sb.update();
-		Hole hole = c.getHole();
-		System.out.println(p.getBall().checkPin(hole.getL(), hole.getR(), hole.getB(), hole.getT()));
+		
+		Hole hole = c.getHole();		//the hole logic for making the next hole. 
+		boolean done= p.getBall().checkPin(hole.getL(), hole.getR(), hole.getB(), hole.getT());
+		if(done) {
+			//c.advanceHole();
+			System.out.println(done);
+			this.nextHole();
+		}
+	}
+
+	private void nextHole() {
+		// TODO Auto-generated method stub
+		double startY = c.getHole().getStartY();
+		double startX = c.getHole().getStartX();
+		b.nextHole(startX, startY);
+		p.nextHole(startX,startY);
+		
 	}
 
 	public void drawScreen() {
