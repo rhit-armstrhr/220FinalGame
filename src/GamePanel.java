@@ -25,7 +25,7 @@ public class GamePanel extends JComponent {
 		b = new Ball(startX, startY);
 		p = new Player(startX, startY, b);
 		pb = new PowerBar();
-		con = new Controller(frame, p);
+		con = new Controller(frame, p, pb);
 		sb = new ScoreBoard();
 		
 

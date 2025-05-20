@@ -7,11 +7,13 @@ public class Controller {
 
 	private JFrame frame;
 	private Player player;
+	private PowerBar pb;
 
-	public Controller(JFrame jFrame, Player p) {
+	public Controller(JFrame jFrame, Player p, PowerBar pb) {
 		// TODO Auto-generated constructor stub
 		this.frame = jFrame;
 		this.player = p;
+		this.pb = pb;
 		addListeners();
 
 	}
@@ -33,9 +35,11 @@ public class Controller {
 					System.out.println("left");
 					break;
 				case KeyEvent.VK_SPACE:
-					double power = 1;
-					player.swing(power);
+					if (pb.isHitting()) {
+					player.swing(pb.getPower());
 					System.out.println("Swing: " + player.getStrokes());
+					} else pb.startSwing();
+					
 					break;
 				case KeyEvent.VK_SHIFT:
 					player.switchClub();

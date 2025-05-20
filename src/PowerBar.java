@@ -59,7 +59,7 @@ public class PowerBar extends JPanel {
 
 	public void startSwing() {
 		hitting = true;
-		sliderX = 0;
+		sliderX = BARX;
 	}
 	
 	public double getPower() {
@@ -67,5 +67,9 @@ public class PowerBar extends JPanel {
 		hitting = false;
 		return powerValues[ind];
 		
+	}
+
+	public boolean isHitting() {
+		return hitting;
 	}
 }
