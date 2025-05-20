@@ -7,21 +7,16 @@ public class Controller {
 
 	private JFrame frame;
 	private Player player;
-	private Boolean continueMenu;
 
 	public Controller(JFrame jFrame, Player p) {
 		// TODO Auto-generated constructor stub
 		this.frame = jFrame;
 		this.player = p;
-		addGameListeners();
+		addListeners();
 
 	}
-	public Controller(JFrame frame) {
-		this.frame = frame;
-		
-	}
-	
-		private void addGameListeners() {
+
+	private void addListeners() {
 
 		double angleOfAiming = 0.15; // about 20 deg in radians
 
