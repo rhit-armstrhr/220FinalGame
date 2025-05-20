@@ -33,4 +33,7 @@ public class Clubs extends JPanel {
 		return new Rectangle(x, y, 40, 10);
 	}
 
+	public String getName() {
+		return title;
+	}
 }
