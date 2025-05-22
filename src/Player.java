@@ -56,13 +56,14 @@ public class Player extends JPanel {
 	}
 
 	public void swing(double power) {
-		xLoc += power * clubList.get(clubIndex).getRange() * Math.cos(angle);
-		yLoc += power * clubList.get(clubIndex).getRange() * Math.sin(angle);
+		if (!ball.checkIfMoving()) {
+		xLoc += power * currentClub.getRange() * Math.cos(angle);
+		yLoc += power * currentClub.getRange() * Math.sin(angle);
 		strokes += 1;
 		moveAim(0); // update the aim function so it gets redrawn
 		repaint();
-		System.out.println(xLoc + ",  " + yLoc);
-		ball.getHit(xLoc, yLoc);
+		ball.getHit(xLoc, yLoc, currentClub);
+		} else System.out.println("Wait");
 	}
 
 	public void switchClub() {
@@ -75,6 +76,7 @@ public class Player extends JPanel {
 		repaint();
 	}
 
+	
 	protected void draw(java.awt.Graphics2D g2) {
 		Color old = g2.getColor();
 		g2.setColor(Color.WHITE);
