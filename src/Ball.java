@@ -25,6 +25,8 @@ public class Ball extends JPanel {
 	private double totalDist, halfDist, traveledDist;
 	private int countDirection = 1;
 	private boolean putt = false;
+	private double lastx;
+	private double lasty;
 
 	public Ball(double startX, double startY) {
 		x = (int) startX;
@@ -47,6 +49,8 @@ public class Ball extends JPanel {
 	}
 
 	public void getHit(double xLoc, double yLoc, Clubs p) {
+		lastx = x;
+		lasty = y;
 		destX = xLoc;
 		destY = yLoc;
 		double dx = destX - x;
@@ -57,7 +61,8 @@ public class Ball extends JPanel {
 		speedy = SPEED * dy / totalDist;
 		moving = true;
 
-		if (p.getName().equals("Putter")) putt = true;
+		if (p.getName().equals("Putter"))
+			putt = true;
 	}
 
 	public void draw(Graphics2D g2) {
@@ -70,9 +75,10 @@ public class Ball extends JPanel {
 		x = startX;
 		y = startY;
 	}
-	
+
 	public boolean checkIfMoving() {
-		if (putt) return false;
+		if (putt)
+			return false;
 		return moving;
 	}
 
@@ -99,29 +105,43 @@ public class Ball extends JPanel {
 
 		if (Math.abs(traveledDist) >= Math.abs(halfDist)) {
 			countDirection = -1;
-		}else {
+		} else {
 			countDirection = 1;
 		}
-		
+
 		if (!putt) {
-		if (currentFrame <= 0) {
-			currentFrame = 0;
-			countDirection = 1;
-		}
-		
-		frameCounter ++;
-		if (frameCounter >= FRAME_DELAY) {
-			frameCounter = 0;
-			currentFrame = (currentFrame + countDirection) % ballFrames.size();
+			if (currentFrame <= 0) {
+				currentFrame = 0;
+				countDirection = 1;
+			}
+
+			frameCounter++;
+			if (frameCounter >= FRAME_DELAY) {
+				frameCounter = 0;
+				currentFrame = (currentFrame + countDirection) % ballFrames.size();
 //			System.out.println(currentFrame + " and count" + countDirection);
-		}
+			}
 		}
 //		System.out.println(frameCounter);
-		
+
 	}
 
 	public void setMoving(boolean b) {
 		moving = b;
-		
+
+	}
+
+	public double getXPosition() {
+		return x;
+	}
+
+	public double getYPosition() {
+		return y;
+	}
+
+
+	public void reset() {
+		x = lastx;
+		y = lasty;
 	}
 }

@@ -36,6 +36,7 @@ public class GamePanel extends JComponent {
 		sb.update();
 		b.update();
 		pb.update();
+		p.update();
 		Hole hole = c.getHole();		//the hole logic for making the next hole. 
 		boolean done = p.getBall().checkPin(hole.getL(), hole.getR(), hole.getB(), hole.getT());
 		if(done && !b.checkIfMoving()) {
@@ -44,6 +45,7 @@ public class GamePanel extends JComponent {
 			b.setMoving(false);
 			this.nextHole();
 		}
+		hole.checkHazard(b, p);
 	}
 
 	private void nextHole() {
@@ -69,6 +71,7 @@ public class GamePanel extends JComponent {
 		b.draw(g2);
 		p.draw(g2);
 		pb.draw(g2);
+		
 	}
 
 }
