@@ -15,7 +15,6 @@ public class Controller {
 	private JFrame frame;
 	private Player player;
 	private PowerBar pb;
-	
 
 	public Controller(JFrame jFrame, Player p, PowerBar pb) {
 		// TODO Auto-generated constructor stub
@@ -44,10 +43,11 @@ public class Controller {
 					break;
 				case KeyEvent.VK_SPACE:
 					if (pb.isHitting()) {
-					player.swing(pb.getPower());
-					System.out.println("Swing: " + player.getStrokes());
-					} else pb.startSwing();
-					
+						player.swing(pb.getPower());
+						System.out.println("Swing: " + player.getStrokes());
+					} else
+						pb.startSwing();
+
 					break;
 				case KeyEvent.VK_SHIFT:
 					player.switchClub();
@@ -55,9 +55,9 @@ public class Controller {
 					break;
 				case KeyEvent.VK_P:
 					Point mousePosition = MouseInfo.getPointerInfo().getLocation();
-			        int x = (int) mousePosition.getX();
-			        int y = (int) mousePosition.getY();
-			        System.out.println((x - 134) + ", " + (y - 109));
+					int x = (int) mousePosition.getX();
+					int y = (int) mousePosition.getY();
+					System.out.println((x - 134) + ", " + (y - 109));
 				}
 			};
 		});
