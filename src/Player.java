@@ -25,6 +25,7 @@ public class Player extends JPanel {
 	private double lastx;
 	private double lasty;
 	private double debuff;
+	private double d;
 
 	public Player(double startX, double startY, Ball ball) {
 		// TODO Auto-generated constructor stub
@@ -55,7 +56,10 @@ public class Player extends JPanel {
 	}
 
 	public void moveAim(double dAngle) {
-		angle += dAngle;
+		if (currentClub.getName().equals("driver")) d = 0.3;
+		else if (currentClub.getName().equals("iron")) d = 0.4;
+		else d = 1;
+		angle += (dAngle*d) ;
 		
 		yAim = yLoc + range * Math.sin(angle) * debuff;
 		xAim = xLoc + range * Math.cos(angle) * debuff;
@@ -103,7 +107,7 @@ public class Player extends JPanel {
 	protected void draw(java.awt.Graphics2D g2) {
 		Color old = g2.getColor();
 		g2.setColor(Color.WHITE);
-		g2.draw(new Rectangle((int) xLoc, (int) yLoc, 40, 50)); // ball character
+		g2.draw(new Rectangle((int) xLoc, (int) yLoc, 5, 5)); // ball character
 
 		g2.setColor(Color.RED);
 		g2.fill(new Rectangle((int) xAim, (int) yAim, 15, 15)); // aiming tool
@@ -131,6 +135,7 @@ public class Player extends JPanel {
 	public void nextHole(double startX, double startY, int clubReset, int aimReset) {
 		xLoc = startX;
 		yLoc = startY;
+		strokes = 0;
 		this.clubIndex = 3;
 		this.switchClub();
 		this.angle = aimReset;

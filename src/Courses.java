@@ -9,9 +9,12 @@ import java.util.ArrayList;
 public class Courses {
 	private int currentHole = 0;
 	private ArrayList<Hole> holes = new ArrayList<>();
+	private boolean endCard;
+	private boolean hasRun;
 
 	public Courses() {
-		holes.add(new Hole("src/Images/Hole1.png", 1, 3, 300, 500));
+		holes.add(new Hole("src/Images/Hole1.png", 1, 3, 316, 522));
+		holes.add(new Hole("src/Images/Hole2.png", 2, 4, 152, 343));
 	}
 
 	public Hole getHole() {
@@ -24,8 +27,16 @@ public class Courses {
 	}
 
 	public void advanceHole() {
-		currentHole++;
-		if (currentHole > holes.size())
-			currentHole = 0;
+		
+		if (currentHole == 1)
+			endCard = true;
+		currentHole = 1;
+		
+	}
+
+	public boolean isEndCard() {
+		if (endCard)
+			return true;
+		return false;
 	}
 }
