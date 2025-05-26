@@ -34,24 +34,27 @@ public class GamePanel extends JComponent {
 	public void update() {
 		sb.strokesUpdate(p.getStrokes());
 		sb.update();
-		b.update();
 		pb.update();
+		p.update();
 		Hole hole = c.getHole();		//the hole logic for making the next hole. 
-		boolean done = p.getBall().checkPin(hole.getL(), hole.getR(), hole.getB(), hole.getT());
-		if(done && !b.checkIfMoving()) {
-			//c.advanceHole();
-			System.out.println(done);
+		if(hole.checkInHole(b)) {
 			b.setMoving(false);
 			this.nextHole();
 		}
+		hole.checkHazard(b, p);
+		b.update();
 	}
 
 	private void nextHole() {
+		c.advanceHole();
 		double startY = c.getHole().getStartY();
 		double startX = c.getHole().getStartX();
+		sb.nextHole(p.getStrokes());
 		b.nextHole(startX, startY);
 		p.nextHole(startX,startY,0,0);
-		sb.nextHole(p.getStrokes());
+		
+		
+		
 	}
 
 	public void drawScreen() {
@@ -63,12 +66,15 @@ public class GamePanel extends JComponent {
 		super.paintComponent(g);
 		Graphics2D g2 = (Graphics2D) g;
 
-		
+	if (!c.isEndCard()) {
 		c.draw(g2);
-		sb.draw(g2);
+		sb.draw(g2, false);
 		b.draw(g2);
 		p.draw(g2);
 		pb.draw(g2);
+	} else
+		sb.draw(g2, true);
+		
 	}
 
 }

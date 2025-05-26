@@ -16,7 +16,7 @@ import java.util.Random;
 public class ScoreBoard extends JPanel {
 
 	private BufferedImage ScoreCard;
-
+	private BufferedImage endCard;
 	private ArrayList<BufferedImage> smallNums;
 
 	private int strokes = 0;
@@ -24,12 +24,23 @@ public class ScoreBoard extends JPanel {
 	private int firstDigit = 0;
 	private boolean doubleDigits = false;
 
+	private boolean doubleDigitsScore;
+
+	private int score1stnum;
+
+	private int firstDigitScore;
+
+	private int score2ndNum;
+
+	private int xscore, yscore;
+
 	public ScoreBoard() {
 
 		smallNums = Animations.smallNums();
 
 		try {
 			ScoreCard = ImageIO.read(new File("src/Images/ScoreCard.png"));
+			endCard = ImageIO.read(new File("src/Images/EndCard.png"));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -40,6 +51,7 @@ public class ScoreBoard extends JPanel {
 	public void strokesUpdate(int strokes) {
 		if (strokes >= 10) {
 			doubleDigits = true;
+			doubleDigitsScore = true;
 			int num = strokes;
 			while (num >= 10)
 				num = num / 10;
@@ -48,22 +60,42 @@ public class ScoreBoard extends JPanel {
 		this.strokes = strokes % 10;
 	}
 
-	public void draw(java.awt.Graphics2D g2) {
+	public void draw(java.awt.Graphics2D g2, boolean end) {
 		int x = 235;
 		int y = 65;
-		g2.drawImage(ScoreCard, 185, 21, ScoreCard.getWidth(), ScoreCard.getHeight(), this);
+		if (!end) {
+			xscore = x + 100;
+			yscore = y;
+	
+			g2.drawImage(ScoreCard, 185, 21, ScoreCard.getWidth(), ScoreCard.getHeight(), this);
+	
+			if (!doubleDigits) {
+				g2.drawImage(smallNums.get(strokes), x, y, smallNums.get(strokes).getWidth(),
+						smallNums.get(strokes).getHeight(), this);
+			} else {
+				g2.drawImage(smallNums.get(firstDigit), x - 10, y, smallNums.get(firstDigit).getWidth(),
+						smallNums.get(firstDigit).getHeight(), this);
+				g2.drawImage(smallNums.get(strokes), x + 10, y, smallNums.get(strokes).getWidth(),
+						smallNums.get(strokes).getHeight(), this);
+	
+			}
 
-		if (!doubleDigits) {
-			g2.drawImage(smallNums.get(strokes), x, y, smallNums.get(strokes).getWidth(),
-					smallNums.get(strokes).getHeight(), this);
 		} else {
-			g2.drawImage(smallNums.get(firstDigit), x - 10, y, smallNums.get(firstDigit).getWidth(),
-					smallNums.get(firstDigit).getHeight(), this);
-			g2.drawImage(smallNums.get(strokes), x + 10, y, smallNums.get(strokes).getWidth(),
-					smallNums.get(strokes).getHeight(), this);
+			
+			xscore = 631;
+			yscore = 397;
+			g2.drawImage(endCard, 0, 0, this);
+		}
+		if (!doubleDigits) {
+			g2.drawImage(smallNums.get(score), xscore, yscore, smallNums.get(score).getWidth(),
+					smallNums.get(score).getHeight(), this);
+		} else {
+			g2.drawImage(smallNums.get(firstDigitScore), xscore - 10, yscore, smallNums.get(firstDigitScore).getWidth(),
+					smallNums.get(firstDigitScore).getHeight(), this);
+			g2.drawImage(smallNums.get(score2ndNum), xscore + 10, yscore, smallNums.get(score2ndNum).getWidth(),
+					smallNums.get(score2ndNum).getHeight(), this);
 
 		}
-
 		repaint();
 	}
 
@@ -72,7 +104,15 @@ public class ScoreBoard extends JPanel {
 	}
 
 	public void nextHole(int holeScore) {
-		// TODO Auto-generated method stub
 		score += holeScore;
+		if (holeScore >= 10) {
+			doubleDigits = true;
+			doubleDigitsScore = true;
+			int num = holeScore;
+			while (num >= 10)
+				num = num / 10;
+			firstDigitScore = num;
+		}
+		this.score2ndNum = score % 10;
 	}
 }

@@ -2,12 +2,16 @@ import java.awt.event.KeyEvent;
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 import javax.swing.Timer;
+import javax.swing.event.MenuKeyEvent;
+import java.awt.MouseInfo;
+import java.awt.Point;
 
 public class Controller {
 
 	private JFrame frame;
 	private Player player;
 	private PowerBar pb;
+	
 
 	public Controller(JFrame jFrame, Player p, PowerBar pb) {
 		// TODO Auto-generated constructor stub
@@ -20,7 +24,7 @@ public class Controller {
 
 	private void addListeners() {
 
-		double angleOfAiming = 0.15; // about 20 deg in radians
+		double angleOfAiming = 0.1; // about 20 deg in radians
 
 		frame.addKeyListener(new java.awt.event.KeyAdapter() {
 			@Override
@@ -45,6 +49,11 @@ public class Controller {
 					player.switchClub();
 					System.out.println("Switch Clubs");
 					break;
+				case KeyEvent.VK_P:
+					Point mousePosition = MouseInfo.getPointerInfo().getLocation();
+			        int x = (int) mousePosition.getX();
+			        int y = (int) mousePosition.getY();
+			        System.out.println((x - 134) + ", " + (y - 109));
 				}
 			};
 		});
