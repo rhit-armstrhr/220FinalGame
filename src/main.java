@@ -1,22 +1,19 @@
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.SwingUtilities;
 import javax.swing.Timer;
 
+/*
+ * Author Hayden Armstrong and Frank LaMontia. This starts the game and creates the timer for the game.
+ */
 public class main {
 
 	public static void main(String[] args) {
 
 		// Runs The Viewer Class
-//	Game mainGame = new Game();
 		Viewer view = new Viewer();
 		view.createGUI();
-//	SwingUtilities.invokeLater(() -> view.createGUI());
-//	Player p = new Player();
-//
-//	Controller control = new Controller(view.getFrame(), p);
-//	mainGame.setController(control);
+// Creates the timer that runs the updates in the game. 
 		Timer timer = new Timer(10, new ActionListener() {
 
 			@Override
@@ -24,11 +21,11 @@ public class main {
 				view.update();
 				view.drawScreen();
 			}
-			
+
 		});
-		
+
 		timer.start();
-		
+
 	}
 
 }

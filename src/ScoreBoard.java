@@ -1,16 +1,13 @@
-import java.awt.Graphics2D;
-
 import javax.imageio.ImageIO;
-import javax.swing.JFrame;
 import javax.swing.JPanel;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Random;
 
 /**
- * @author Frank LaMantia Used only 220 materials
+ * @author Frank LaMantia and Hayden Armstrong Used only 220 materials\
+ * Displays the 
  */
 
 public class ScoreBoard extends JPanel {

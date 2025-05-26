@@ -6,7 +6,7 @@ import javax.swing.JPanel;
 
 /**
  * @author Frank LaMantia and Hayden Armstrong
- * 
+ * Ball class that holds the animation and data for the ball. 
  */
 
 public class Ball extends JPanel {

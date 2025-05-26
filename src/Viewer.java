@@ -1,20 +1,17 @@
 
 /**
- * @author Frank LaMantia
+ * @author Frank LaMantia and Hayden Armstrong
 * Used only 220 materials
+* Is the viewer that 
 */
 
-import java.awt.BorderLayout;
-
 import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.SwingUtilities;
 
 public class Viewer {
 
 	static JFrame frame;
 	private GamePanel gp;
-	
+
 	public void createGUI() {
 		frame = new JFrame("Viewer");
 		gp = new GamePanel(frame);
@@ -22,15 +19,14 @@ public class Viewer {
 		frame.setLocationRelativeTo(null);
 		frame.add(gp);
 
-//		frame.pack();
-
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setVisible(true);
 	}
-	
+
 	public void update() {
 		gp.update();
 	}
+
 	public void drawScreen() {
 		gp.drawScreen();
 	}

@@ -6,6 +6,10 @@ import javax.swing.event.MenuKeyEvent;
 import java.awt.MouseInfo;
 import java.awt.Point;
 
+/*
+ * Authors Hayden Armstrong and Frank LaMontia
+ * Creates the key listeners for the player and frame. 
+ */
 public class Controller {
 
 	private JFrame frame;

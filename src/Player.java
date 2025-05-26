@@ -6,6 +6,12 @@ import java.util.Random;
 
 import javax.swing.JPanel;
 
+/*
+ * Author Hayden Armstrong and Frank LaMontia
+ * 
+ * This class keeps track of the player and controlls the ball. It check for the collision with the hole and the sand and water traps.
+ * 
+ */
 @SuppressWarnings("serial")
 public class Player extends JPanel {
 	public int strokes;
@@ -28,7 +34,6 @@ public class Player extends JPanel {
 	private double d;
 
 	public Player(double startX, double startY, Ball ball) {
-		// TODO Auto-generated constructor stub
 		strokes = 0;
 		Clubs driver = new Clubs(450, "driver");
 		Clubs iron = new Clubs(275, "iron");
@@ -42,8 +47,7 @@ public class Player extends JPanel {
 		currentClub = clubList.get(clubIndex);
 		range = currentClub.getRange();
 		double y = startY;
-		double x = startX; // done needs to be changed to be an argument in the player class when we get
-							// the chance
+		double x = startX;
 		xLoc = x;
 		yLoc = y;
 		xAim = range + xLoc;
@@ -56,15 +60,17 @@ public class Player extends JPanel {
 	}
 
 	public void moveAim(double dAngle) {
-		if (currentClub.getName().equals("driver")) d = 0.3;
-		else if (currentClub.getName().equals("iron")) d = 0.4;
-		else d = 1;
-		angle += (dAngle*d) ;
-		
+		if (currentClub.getName().equals("driver"))
+			d = 0.3;
+		else if (currentClub.getName().equals("iron"))
+			d = 0.4;
+		else
+			d = 1;
+		angle += (dAngle * d);
+
 		yAim = yLoc + range * Math.sin(angle) * debuff;
 		xAim = xLoc + range * Math.cos(angle) * debuff;
 
-		
 //		System.out.println("aiming @" + angle + ",  " + dAngle);
 //		System.out.println(xAim+",  "+yAim + ", " + dAngle);
 		repaint();
@@ -72,7 +78,7 @@ public class Player extends JPanel {
 
 	public void swing(double power) {
 		if (!ball.checkIfMoving()) {
-			if (power>1) {
+			if (power > 1) {
 				errorx = error * (r.nextDouble() * 2 - 1);
 				errory = error * (r.nextDouble() * 2 - 1);
 				System.out.println(errorx + " and y:" + errory);
@@ -82,7 +88,6 @@ public class Player extends JPanel {
 			}
 			lastx = xLoc;
 			lasty = yLoc;
-		
 
 			xLoc += debuff * power * currentClub.getRange() * Math.cos(angle) + errorx;
 			yLoc += debuff * power * currentClub.getRange() * Math.sin(angle) + errory;
@@ -115,13 +120,7 @@ public class Player extends JPanel {
 		g2.setColor(old);
 		g2.drawImage(clubImage.get(clubIndex), 10, 590, clubImage.get(clubIndex).getWidth(),
 				clubImage.get(clubIndex).getHeight(), this);
-//		g2.drawImage(, 0, 0, currentClub.getWidth(), currentClub.getHeight(), this);
-//		if (spriteLoaded) {
-//			g2.drawImage(image, x, y, rad, rad, this);
-//		} else {
-//			g2.setColor(Color.CYAN);
-//			g2.fillOval(x, y, rad, rad);
-//		}
+
 	}
 
 	public Ball getBall() {
@@ -144,9 +143,12 @@ public class Player extends JPanel {
 	}
 
 	public void setStatus(String string) {
-		if (string.equals("none")) this.sand = false;
-		else if (string.equals("sand")) this.sand = true;
-		else System.out.println("What? how?");
+		if (string.equals("none"))
+			this.sand = false;
+		else if (string.equals("sand"))
+			this.sand = true;
+		else
+			System.out.println("What? how?");
 	}
 
 	public void reset() {
@@ -155,9 +157,12 @@ public class Player extends JPanel {
 	}
 
 	public void update() {
-		if (currentClub.getName().equals("wedge")) debuff = 1;
-		else if (sand) debuff = 0.5;
-		else debuff = 1;
+		if (currentClub.getName().equals("wedge"))
+			debuff = 1;
+		else if (sand)
+			debuff = 0.5;
+		else
+			debuff = 1;
 		this.moveAim(0);
 	}
 

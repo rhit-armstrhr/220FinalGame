@@ -1,10 +1,9 @@
-import java.util.ArrayList;
-
 import javax.swing.JPanel;
 
-import java.awt.Rectangle;
-import java.awt.Shape;
-
+/*
+ * Authors Hayden Armstrong Used only the CSSE course materials
+ * Clubs class that gets added to the player for each range and name. 
+ */
 public class Clubs extends JPanel {
 
 	double range;
@@ -14,24 +13,13 @@ public class Clubs extends JPanel {
 	public Clubs(double range, String name) {
 		this.range = range;
 		this.title = name;
-//		if(name = "driver") {
-//			this.image = 
-//		}
 
-	}
-
-	public void hit(int direction, int power, Ball b) {
-		// do as percentage of max power
 	}
 
 	public double getRange() {
 		return range;
 	}
 
-	public Shape getImage(int x, int y) {
-		// return image;
-		return new Rectangle(x, y, 40, 10);
-	}
 
 	public String getName() {
 		return title;

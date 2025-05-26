@@ -10,12 +10,10 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.awt.Polygon;
 import javax.imageio.ImageIO;
-import javax.swing.JComponent;
-import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 /**
- * @author Frank LaMantia Used only 220 materials
+ * @author Frank LaMantia and Hayden Armstrong Used only 220 materials
  */
 
 public class Hole extends JPanel {
@@ -70,13 +68,10 @@ public class Hole extends JPanel {
 				windDirection.get(direction).getHeight(), this);
 		g2.setColor(Color.pink);
 		g2.drawImage(image, 0, 0, image.getWidth(), image.getHeight(), this);
-//		sandTraps.forEach(g2::fill);
-//		waterTraps.forEach(g2::fill);
 		g2.drawImage(HoleCard, 10, 10, HoleCard.getWidth(), HoleCard.getHeight(), this);
 		g2.drawImage(bigNums.get(holeNum), 50, 60, bigNums.get(holeNum).getWidth(), bigNums.get(holeNum).getHeight(),
 				this);
 		g2.drawImage(bigNums.get(par), 120, 60, bigNums.get(par).getWidth(), bigNums.get(par).getHeight(), this);
-//		g2.fill(pin);
 		repaint();
 
 	}
@@ -131,14 +126,14 @@ public class Hole extends JPanel {
 			st1.curveTo(725, 213, 710, 195, 717, 161);
 			st1.lineTo(661, 97);
 			st1.closePath();
-			
+
 			st2 = new Path2D.Double();
 			st2.moveTo(1094, 429);
 			st2.lineTo(1167, 382);
 			st2.lineTo(1204, 417);
 			st2.lineTo(1178, 478);
 			st2.closePath();
-			
+
 			wt1 = new Path2D.Double();
 			wt1.moveTo(586, 395);
 			wt1.curveTo(596, 333, 653, 250, 769, 237);
@@ -151,8 +146,7 @@ public class Hole extends JPanel {
 			wt1.lineTo(598, 438);
 			wt1.lineTo(584, 402);
 			wt1.closePath();
-			
-			
+
 			sandTraps.add(st1);
 			sandTraps.add(st2);
 			waterTraps.add(wt1);
@@ -178,7 +172,6 @@ public class Hole extends JPanel {
 		direction = rand.nextInt(windDirection.size());
 	}
 
-
 	public Boolean checkInHole(Ball ball) {
 		double xPos = ball.getXPosition();
 		double yPos = ball.getYPosition();
@@ -198,10 +191,8 @@ public class Hole extends JPanel {
 		if (!ball.checkIfMoving()) {
 			for (Double p : waterTraps) {
 				if (p.contains(xPos, yPos)) {
-
 					ball.reset();
 					player.reset();
-
 					System.out.println("wet");
 				} else
 					player.setStatus("none");
@@ -209,13 +200,10 @@ public class Hole extends JPanel {
 
 			for (Double p : sandTraps) {
 				if (p.contains(xPos, yPos)) {
-
 					player.setStatus("sand");
 				} else
 					player.setStatus("none");
 			}
-
 		}
-
 	}
 }

@@ -5,9 +5,9 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 /**
- * @author Frank LaMantia Used only 220 materials
+ * @author Frank LaMantia and Hayden Armstrong Used only 220 materials
+ * creates the game objects of the player, ball, and scoreboard. 
  */
-// help me
 public class GamePanel extends JComponent {
 
 	private Player p;
