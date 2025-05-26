@@ -56,15 +56,17 @@ public class Player extends JPanel {
 	}
 
 	public void moveAim(double dAngle) {
-		if (currentClub.getName().equals("driver")) d = 0.3;
-		else if (currentClub.getName().equals("iron")) d = 0.4;
-		else d = 1;
-		angle += (dAngle*d) ;
-		
+		if (currentClub.getName().equals("driver"))
+			d = 0.3;
+		else if (currentClub.getName().equals("iron"))
+			d = 0.4;
+		else
+			d = 1;
+		angle += (dAngle * d);
+
 		yAim = yLoc + range * Math.sin(angle) * debuff;
 		xAim = xLoc + range * Math.cos(angle) * debuff;
 
-		
 //		System.out.println("aiming @" + angle + ",  " + dAngle);
 //		System.out.println(xAim+",  "+yAim + ", " + dAngle);
 		repaint();
@@ -72,7 +74,7 @@ public class Player extends JPanel {
 
 	public void swing(double power) {
 		if (!ball.checkIfMoving()) {
-			if (power>1) {
+			if (power > 1) {
 				errorx = error * (r.nextDouble() * 2 - 1);
 				errory = error * (r.nextDouble() * 2 - 1);
 				System.out.println(errorx + " and y:" + errory);
@@ -82,7 +84,6 @@ public class Player extends JPanel {
 			}
 			lastx = xLoc;
 			lasty = yLoc;
-		
 
 			xLoc += debuff * power * currentClub.getRange() * Math.cos(angle) + errorx;
 			yLoc += debuff * power * currentClub.getRange() * Math.sin(angle) + errory;
@@ -144,9 +145,12 @@ public class Player extends JPanel {
 	}
 
 	public void setStatus(String string) {
-		if (string.equals("none")) this.sand = false;
-		else if (string.equals("sand")) this.sand = true;
-		else System.out.println("What? how?");
+		if (string.equals("none"))
+			this.sand = false;
+		else if (string.equals("sand"))
+			this.sand = true;
+		else
+			System.out.println("What? how?");
 	}
 
 	public void reset() {
@@ -155,9 +159,12 @@ public class Player extends JPanel {
 	}
 
 	public void update() {
-		if (currentClub.getName().equals("wedge")) debuff = 1;
-		else if (sand) debuff = 0.5;
-		else debuff = 1;
+		if (currentClub.getName().equals("wedge"))
+			debuff = 1;
+		else if (sand)
+			debuff = 0.5;
+		else
+			debuff = 1;
 		this.moveAim(0);
 	}
 
